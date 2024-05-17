@@ -7,3 +7,6 @@ func (s session) GetKeyRecordById(id uint) (*models.KeyRecord, error) {
 	result := s.connection.First(record, id)
 	return resultOrError(record, result)
 }
+
+/// get all penalty types
+/// s.connetions .all

@@ -6,14 +6,23 @@
   </head>
   <body>
     <rapi-doc 
+        id="rapi-doc"
         spec-url = "/oas/v1/openapi.yml"
-        show-header	="false"
-        server-url = "http://localhost:9001/api/v1" 
-        show-method-in-nav-bar="as-colored-text"
-        sort-tags="true"
-        sort-endpoints-by="path"
-        default-schema-tab="schema"
-    > <!-- TODO Need to have the server-url user ${windows.location.origin} so when it is deployed it doesn't try to access localhost -->
+        show-header = "false"
+        show-method-in-nav-bar = "as-colored-text"
+        sort-tags = "true"
+        sort-endpoints-by = "path"
+        default-schema-tab = "schema"
+    >
     </rapi-doc>
+
+    <!--  when it is deployed it doesn't try to access localhost -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const rapiDocElement = document.getElementById('rapi-doc');
+        rapiDocElement.setAttribute('server-url', `${window.location.origin}/api/v1`);
+      });
+    </script>
   </body>
 </html>
